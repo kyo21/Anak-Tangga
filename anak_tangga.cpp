@@ -5,7 +5,7 @@
 
 void jml_cara(int n){
 
-//Tulis Kode di sini
+//CODE
 }
 
 int main(){
