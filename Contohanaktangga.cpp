@@ -4,31 +4,31 @@
 
 using namespace std;
 
-map<int, int> memo;
+map<int, int> steps;
 
 int hitungCaraMencapaiPuncak(int n, set<int>& langkahDiperbolehkan) {
     if (n < 0) return 0;
     if (n == 0) return 1;
 
     // Periksa apakah hasil untuk langkah saat ini sudah dimemoisasi
-    if (memo.find(n) != memo.end()) {
-        return memo[n];
+    if (steps.find(n) != steps.end()) {
+        return steps[n];
     }
 
     int cara = 0;
 
     // Hitung jumlah cara dengan mempertimbangkan setiap langkah yang diperbolehkan
     for (int langkah : langkahDiperbolehkan) {
-        cara = hitungCaraMencapaiPuncak(n - langkah, langkahDiperbolehkan);
+        cara += hitungCaraMencapaiPuncak(n - langkah, langkahDiperbolehkan);
     }
 
     // Memoisasi hasil untuk langkah saat ini
-    memo[n] = cara;
+   steps[n] = cara;
 
     return cara;
 }
 
-void tampilkanSemuaCaraMencapaiPuncak(int n, set<int>& langkahDiperbolehkan, string jalurSaatIni) {
+void jml_cara(int n, set<int>& langkahDiperbolehkan, string jalurSaatIni) {
     if (n < 0) return;
     if (n == 0) {
         cout << jalurSaatIni << endl;
@@ -36,7 +36,7 @@ void tampilkanSemuaCaraMencapaiPuncak(int n, set<int>& langkahDiperbolehkan, str
     }
 
     for (int langkah : langkahDiperbolehkan) {
-        tampilkanSemuaCaraMencapaiPuncak(n - langkah, langkahDiperbolehkan, jalurSaatIni + to_string(langkah) + " ");
+        jml_cara(n - langkah, langkahDiperbolehkan, jalurSaatIni + to_string(langkah) + " ");
     }
 }
 
@@ -51,8 +51,8 @@ int main() {
 
     cout << "Jumlah cara untuk mencapai puncak tangga: " << cara << endl;
 
-    cout << "Semua cara untuk mencapai puncak tangga:" << endl;
-    tampilkanSemuaCaraMencapaiPuncak(n, langkahDiperbolehkan, "");
+    cout << "Cara untuk mencapai puncak tangga:" << endl;
+    jml_cara(n, langkahDiperbolehkan, "");
 
-    return 0;
+    return 0;
 }
