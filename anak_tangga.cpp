@@ -39,21 +39,4 @@ void jml_cara(int n, set<int>& langkahDiperbolehkan, string jalurSaatIni) {
     }
 }
 
-int main() {
-
-    int n;
-    set<int> langkahDiperbolehkan = {1, 3};  // Langkah yang diperbolehkan: 1 anak tangga atau 3 anak tangga
-
-    cout << "Masukkan jumlah anak tangga (n): ";
-    cin >> n;
-
-    int cara = hitungCaraMencapaiPuncak(n, langkahDiperbolehkan);
-
-    cout << "Jumlah cara untuk mencapai puncak tangga: " << cara << endl;
-
-    cout << "Cara untuk mencapai puncak tangga:" << endl;
-    jml_cara(n, langkahDiperbolehkan, " ");
-
-    return 0;
-}
 
