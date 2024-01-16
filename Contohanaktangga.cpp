@@ -1,9 +1,9 @@
 #include <iostream>
 #include <map>
 #include <set>
+
 using namespace std;
 
-void jml_cara(int n){
 map<int, int> memo;
 
 int hitungCaraMencapaiPuncak(int n, set<int>& langkahDiperbolehkan) {
@@ -19,7 +19,7 @@ int hitungCaraMencapaiPuncak(int n, set<int>& langkahDiperbolehkan) {
 
     // Hitung jumlah cara dengan mempertimbangkan setiap langkah yang diperbolehkan
     for (int langkah : langkahDiperbolehkan) {
-        cara += hitungCaraMencapaiPuncak(n - langkah, langkahDiperbolehkan);
+        cara = hitungCaraMencapaiPuncak(n - langkah, langkahDiperbolehkan);
     }
 
     // Memoisasi hasil untuk langkah saat ini
@@ -55,9 +55,4 @@ int main() {
     tampilkanSemuaCaraMencapaiPuncak(n, langkahDiperbolehkan, "");
 
     return 0;
-}
-
-
-
-return 0;
 }
