@@ -27,6 +27,7 @@ int hitungCaraMencapaiPuncak(int n, set<int>& langkahDiperbolehkan) {
 
     return cara;
 }
+
 void jml_cara(int n, set<int>& langkahDiperbolehkan, string jalurSaatIni) {
     if (n < 0) return;
     if (n == 0) {
